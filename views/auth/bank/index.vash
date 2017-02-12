@@ -1,0 +1,28 @@
+@html.extend('auth/layout', function(model) {
+  @html.block('content', function(model) {
+    <div class="container" ng-controller="FidcController as $ctrl">
+      <div class="row" ng-show="$ctrl.showList">
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>Institution Identier</th>
+            <th>Institution Name</th>
+            <th>Exam Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Exam ID</th>
+            <th>Manage</th>
+          </tr>
+          <tr ng-repeat="row in $ctrl.instutionData">
+            <td>{{ ::row.certNumber }}</td>
+            <td>{{ ::row.bankName }}</td>
+            <td>{{ ::row.bankType }}</td>
+            <td>{{ ::row.startDate | date : 'medium' }}</td>
+            <td>{{ ::row.endDate | date : 'medium' }}</td>
+            <td>{{ ::row.examId }}</td>
+            <td><a ng-href="/auth/bank/details#?id={{ row.certNumber }}">Manage</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  })
+})

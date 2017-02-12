@@ -1,0 +1,99 @@
+@html.extend('auth/layout', function(model) {
+  @html.block('content', function(model) {
+    <div class="container" ng-controller="FidcController as $ctrl">
+      <div class="jumbotron" ng-show="$ctrl.showList">
+        <div class="row pull-right"><a class="btn btn-primary" href="#" role="button" ng-click="$ctrl.showList = false">Create New Exam</a></div>
+      </div>
+      <div class="row" ng-show="$ctrl.showList">
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>Institution Identier</th>
+            <th>Institution Name</th>
+            <th>Exam Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Exam ID</th>
+            <th>View Details</th>
+          </tr>
+          <tr ng-repeat="row in $ctrl.instutionData">
+            <td>{{ ::row.certNumber }}</td>
+            <td>{{ ::row.bankName }}</td>
+            <td>{{ ::row.bankType }}</td>
+            <td>{{ ::row.startDate | date : 'medium' }}</td>
+            <td>{{ ::row.endDate | date : 'medium' }}</td>
+            <td>{{ ::row.examId }}</td>
+            <td><a ng-href="/auth/fdic/details#?id={{ row.certNumber }}">View</a></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="row" ng-hide="$ctrl.showList">
+        <div class="col-md-5 col-md-offset-4">
+          <form name="$ctrl.examForm">
+            <div class="form-group">
+              <label>Bank Type</label>
+            </div>
+            <div class="radio col-md-offset-1">
+              <label>
+                <input type="radio" name="bankType" ng-model="$ctrl.model.bankType" value="Bank" ng-required="true"> Bank
+              </label>
+            </div>
+            <div class="radio col-md-offset-1">
+              <label>
+                <input type="radio" name="bankType" ng-model="$ctrl.model.bankType" value="Technology Service Provider" ng-required="true"> Technology Service Provider
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="certNumber">Certificate Number</label>
+              <input type="text" class="form-control" id="certNumber" placeholder="Certificate Number" ng-model="$ctrl.model.certNumber" ng-required="true">
+            </div>
+            <div class="form-group">
+              <label for="examId">Exam Id</label>
+              <input type="text" class="form-control" id="examId" placeholder="Exam Id" ng-model="$ctrl.model.examId" ng-required="true">
+            </div>
+            <div class="form-group">
+              <label for="bankName">Bank Name</label>
+              <input type="text" class="form-control" id="bankName" placeholder="Bank Name" ng-model="$ctrl.model.bankName" ng-required="true">
+            </div>
+            <div class="form-group">
+              <label for="examType">Exam Type</label>
+                <select id="examType" class="form-control" ng-model="$ctrl.model.examType" placeholder="Exam Type" ng-required="true">
+                  <option value="Safety & Soundness">Safety & Soundness</option>
+                  <option value="Compliance">Compliance</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="CRA">CRA</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label for="startDate">Start Date</label>
+              <input type="date" class="form-control" id="startDate" placeholder="Start Date" ng-model="$ctrl.model.startDate" ng-required="true">
+            </div>
+            <div class="form-group">
+              <label for="endDate">End Date</label>
+              <input type="date" class="form-control" id="endDate" placeholder="End Date" ng-model="$ctrl.model.endDate" ng-required="true">
+            </div>
+            <div class="form-group">
+              <label>Assign FDIC Team</label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="fdicTeam" ng-model="$ctrl.model.fdicTeam1" ng-true-value="'John Doe - Washington DC'" ng-false-value=""> John Doe - Washington DC
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="fdicTeam" ng-model="$ctrl.model.fdicTeam2" ng-true-value="'James Doe - Atlanta, GA'" ng-false-value=""> James Doe - Atlanta, GA
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="fdicTeam" ng-model="$ctrl.model.fdicTeam3" ng-true-value="'Jim Doe- Kansas City, KS'" ng-false-value=""> Jim Doe- Kansas City, KS
+              </label>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="$ctrl.createExam()">Create Exam</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  })
+})

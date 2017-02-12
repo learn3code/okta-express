@@ -1,0 +1,12 @@
+{
+  "baseUploadDir": "uploads/",
+  "tempDir": "tmp/",
+  "otherDir": "uploads/other/",
+  "pdfDir": "uploads/pdf/",
+  "saml": {
+    "path": "/login/callback",
+    "issuer": "http://localhost:3000",
+    "entryPoint": "https://dev-432321.oktapreview.com/app/innovatistechnologiesincdev432321_ldxproject_1/exk9gtwofqYJPiPNR0h7/sso/saml",
+    "cert": "MIIDpDCCAoygAwIBAgIGAVnwpmAtMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi00MzIzMjExHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTcwMTMwMTgzMTMyWhcNMjcwMTMwMTgzMjMyWjCBkjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNDMyMzIxMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyCyLh+VRXO2Fm5m47SLXr4vZvD0jw+++6YHn+FKXnsfxvLq24u5ycsnhRuGtCzNsTKnB4c54WSSAdcjHiohvl1L843bruhRxWFaMvNt/mV+wmjsFRoXn1poonmM0kgvATwcF+XLSXNHI1jfHIcVDpNtLxTPgXeTDuar8K2cuhHXGGM+VKpIEKeZ928TonwqPf0rQ5IfZkh0KHFGzVzD0jpjnWuUXwqxxLdI+MJAnAjTr4+oNA+x7vzdNBrUiZ5nuO9f22q/SeTJhgsleHRy+AvKz80SSpN19MIbOYcSLVd0WasXtnZZk+oNLsizHIh1a9o2HipJXwtHDNF4/Y+gGUQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQABkA7f4sk6cPgRy/MiNrmQE5wSpG5N3yR+jBo4x7B6MkCO2LBdmaEog7x4zHf9ysTjpDOLeXMcbJFctZgGZSKNN1E2UOUcB2WJOxMZF/Pgdoka4uM40raQSmxnv6PK3O6VrfoIl1P/n5wh4fxLkvc87AMtRWXWef/MmK7iGNM++LDlEiBZT0sjgaBCThatn5OXq7hzhu3//eJlfDi66mIp0N6lhGDMZNWdQc5mfrzi1yBoXxm0dlKb4EUS9w8mr8NTJzexDv9b9CheqdJW4CV4M6fCaYkbsw6fA5hJcAyeD366xxdicvnmgxbSJOBb0RDYPMUrCNK+QsUDNUOTYvYb"
+  }
+}

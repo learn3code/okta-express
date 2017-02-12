@@ -1,0 +1,65 @@
+@html.extend('auth/layout', function(model) {
+  @html.block('content', function(model) {
+    <ng-controller ng-controller="BankController as $ctrl">
+        <div ng-hide="$ctrl.showDetails">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <h4 class="col-sm-2">Institution : </h4>
+                        <h4 class="col-sm-3">{{ $ctrl.instutionData[0].bankName }} ({{ $ctrl.instutionData[0].certNumber }})</h4>
+                        <h4 class="col-sm-3 col-sm-offset-1">Exam Identier : </h4>
+                        <h4 class="col-sm-3">{{ $ctrl.instutionData[0].examId }}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                    <th>Exam Identier</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Exam Type</th>
+                    <th>Actions</th>
+                    </tr>
+                    <tr ng-repeat="row in $ctrl.instutionData">
+                    <td>{{ ::row.examId }}</td>
+                    <td>{{ ::row.startDate | date : 'medium' }}</td>
+                    <td>{{ ::row.endDate | date : 'medium' }}</td>
+                    <td>{{ ::row.bankType }}</td>
+                    <td><button class="btn btn-primary" ng-click="$ctrl.manage(row)">Manage Exam</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div ng-show="$ctrl.showDetails">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <a href="/auth/bank" class="btn btn-default pull-right">Back</a>
+                    </div>
+                    <div class="row">
+                        <h4 class="col-sm-2">Institution : </h4>
+                        <h4 class="col-sm-3">{{ $ctrl.selectedDetails.bankName }} ({{ $ctrl.selectedDetails.certNumber }})</h4>
+                        <h4 class="col-sm-3 col-sm-offset-1">Exam Identier : </h4>
+                        <h4 class="col-sm-3">{{ $ctrl.selectedDetails.examId }}</h4>
+                    </div>
+                    <div class="row">
+                        <h4 class="col-sm-2">Start Date : </h4>
+                        <h4 class="col-sm-3">{{ $ctrl.selectedDetails.startDate | date : 'medium' }}</h4>
+                        <h4 class="col-sm-3 col-sm-offset-1">End Date : </h4>
+                        <h4 class="col-sm-3">{{ $ctrl.selectedDetails.endDate | date : 'medium' }}</h4>
+                    </div>
+                    <div class="row">
+                        <h4 class="col-sm-2">Exam Type : </h4>
+                        <h4 class="col-sm-3">{{ $ctrl.selectedDetails.examType }}</h4>
+                    </div>
+                </div>
+            </div>
+            <file-uploader details="$ctrl.selectedDetails"></file-uploader>
+            <div class="container">
+                <file-list exam-id="$ctrl.selectedDetails.examId"></file-list>
+            </div>
+        </div>
+    </ng-controller>
+  })
+})
